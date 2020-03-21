@@ -5,7 +5,7 @@ function Home({ images }) {
     return(
         <div>
             {images.map((image) => 
-                <img src={image} className="App-logo" alt="signature" ></img>
+                <img src={image} className="image" alt="signature" ></img>
             )}
         </div>
     )
