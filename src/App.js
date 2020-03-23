@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import NavBar from './components/NavBar'
 import Home from './components/Home'
+import Footer from './components/Footer'
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './MuiTheme'
+import { getImages } from './service/imageHandler';
 
 function App() {
   const [selectedTab, setSelectedTab] = useState([])
@@ -11,21 +13,16 @@ function App() {
 
   useEffect(() => {
     setSelectedTab('Etusivu');
-    setImages(importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/)));
+    const images = getImages()
+    setImages(images)
   }, []);
-
-  function importAll(r) {
-    return r.keys().map(r);
-  }
-  
-  // const testImages = importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/));
-  // console.log(testImages)
 
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
         <NavBar className="header" selectedTab={selectedTab} setSelectedTab={setSelectedTab}/>
         {selectedTab === 'Etusivu' && <Home className="content" images={images}/>}
+        <Footer className="footer"/>
       </div>
     </ThemeProvider>
   );

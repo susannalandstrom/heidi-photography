@@ -2,8 +2,9 @@
   display: grid;
   grid-template-areas:
     "header"
-    "content";
-  grid-template-rows: 110px 1fr;
+    "content"
+    "footer";
+  grid-template-rows: 110px 1fr 55px;
   height: 1vh;
 }
 
@@ -13,6 +14,14 @@
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+}
+
+.footer {
+  grid-area: footer;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
 }
 
 .navigation {
@@ -38,7 +47,6 @@
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
-  padding: 0 20px;
 }
 
 .App-logo {
