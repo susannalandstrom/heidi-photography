@@ -3,7 +3,7 @@ import '../App.css';
 
 function Home({ images }) {
     return(
-        <div>
+        <div style={{ overflow: 'scroll' }}>
             {images.map((image) => 
                 <img src={image} className="image" alt="signature" ></img>
             )}
